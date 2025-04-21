@@ -61,6 +61,15 @@ streamlit run app.py
 
 5. 在浏览器中访问应用（默认地址：http://localhost:8501）
 
+## docker启动
+运行以下命令来构建镜像：
+```bash
+docker build -t markitdown-web-app .
+```
+docker运行
+```bash
+docker run -d -p 8501:8501 --name markitdown_web_container --restart unless-stopped markitdown-web-app
+```
 ## 使用说明
 
 1. 打开应用后，点击"选择要转换的文件"按钮或直接拖拽文件到上传区域
