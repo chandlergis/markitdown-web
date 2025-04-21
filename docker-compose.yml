@@ -1,0 +1,13 @@
+version: '3.8' # 使用较新的 Compose 文件格式版本
+
+services:
+  markitdown-web:
+    build: .  # 指定 Dockerfile 所在的目录 (当前目录)
+    container_name: markitdown_web_app # 给容器一个友好的名字
+    ports:
+      - "8501:8501" # 将宿主机的 8501 端口映射到容器的 8501 端口
+    volumes:
+      # 如果你希望在本地修改代码后，容器内也实时更新（用于开发），可以取消下面的注释
+      # 注意：这会覆盖 Dockerfile 中 COPY 的代码，并且依赖也会使用本地的 requirements.txt
+      # - .:/app
+    restart: unless-stopped # 配置容器自动重启策略，除非手动停止
